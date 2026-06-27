@@ -26,6 +26,8 @@ export default function Contact() {
   const tx = t[lang];
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const socials = [
     { icon: <WaIcon />, color: "#25D366", label: tx.wa_label, href: "https://wa.me/212698668360" },
@@ -33,9 +35,23 @@ export default function Contact() {
     { icon: <FbIcon />, color: "#1877F2", label: tx.fb_label, href: "https://facebook.com/servicepayant" },
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("Failed");
+      setSent(true);
+    } catch {
+      setError(tx.contact_error ?? "Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -75,8 +91,9 @@ export default function Contact() {
                 <input className="sketch-input px-4 py-3 w-full" type="email" placeholder={tx.contact_email} value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} required />
                 <input className="sketch-input px-4 py-3 w-full" placeholder={tx.contact_phone} value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
                 <textarea className="sketch-input px-4 py-3 w-full resize-none" rows={4} placeholder={tx.contact_msg} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} required />
-                <button type="submit" className="sketch-btn px-7 py-4 bg-[#FF2D78] text-white text-lg w-full text-center">
-                  {tx.contact_send}
+                {error && <p className="text-red-500 text-sm">{error}</p>}
+                <button type="submit" disabled={loading} className="sketch-btn px-7 py-4 bg-[#FF2D78] text-white text-lg w-full text-center disabled:opacity-60">
+                  {loading ? "..." : tx.contact_send}
                 </button>
               </form>
             )}

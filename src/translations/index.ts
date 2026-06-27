@@ -50,6 +50,10 @@ export const t = {
     s7_desc: "Développez votre marque, engagez votre audience, boostez votre croissance.",
     s8_title: "Facebook & Instagram Ads",
     s8_desc: "Des campagnes qui rapportent. Ciblage précis, ROI garanti.",
+    s9_title: "Montage Vidéo",
+    s9_desc: "Des vidéos percutantes qui captivent votre audience et boostent votre engagement.",
+    s10_title: "Shooting Photo Pro",
+    s10_desc: "Des photos professionnelles qui valorisent votre marque et inspirent confiance.",
 
     // Why Us
     why_title1: "Résultats Mesurables",
@@ -128,6 +132,7 @@ export const t = {
     contact_phone: "Votre téléphone (optionnel)",
     contact_msg: "Décrivez votre projet...",
     contact_send: "Envoyer le message →",
+    contact_error: "Une erreur est survenue. Veuillez réessayer.",
     contact_success_title: "Message envoyé !",
     contact_success_sub: "On vous répond dans les 24h.",
     contact_direct: "Ou contactez-nous directement",
@@ -188,6 +193,10 @@ export const t = {
     s7_desc: "طور براندك، شغل جمهورك، وزيد نموك.",
     s8_title: "إعلانات فيسبوك وانستغرام",
     s8_desc: "حملات كتربح. استهداف دقيق وعائد مضمون.",
+    s9_title: "مونتاج فيديو",
+    s9_desc: "فيديوهات قوية كتشد الانتباه وتزيد تفاعل جمهورك.",
+    s10_title: "تصوير فوتوغرافي احترافي",
+    s10_desc: "صور احترافية كتعلي قيمة براندك وتبني الثقة.",
 
     // Why Us
     why_title1: "نتايج قابلة للقياس",
@@ -266,6 +275,7 @@ export const t = {
     contact_phone: "تيليفونك (اختياري)",
     contact_msg: "وصف مشروعك...",
     contact_send: "سيفط الرسالة ←",
+    contact_error: "وقع خطأ. عاود المحاولة.",
     contact_success_title: "!تم إرسال الرسالة",
     contact_success_sub: ".كنجاوبوك خلال 24 ساعة",
     contact_direct: "أو تواصل معانا مباشرة",

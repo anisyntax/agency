@@ -15,6 +15,8 @@ export default function Services() {
     { color: "#00D4AA", icon: "🎬", title: tx.s6_title, desc: tx.s6_desc, rotate: "1deg" },
     { color: "#FFE500", icon: "📱", title: tx.s7_title, desc: tx.s7_desc, rotate: "-2deg" },
     { color: "#FF3B30", icon: "📈", title: tx.s8_title, desc: tx.s8_desc, rotate: "0.5deg" },
+    { color: "#FF7A00", icon: "🎞️", title: tx.s9_title, desc: tx.s9_desc, rotate: "-1deg" },
+    { color: "#2D6EFF", icon: "📸", title: tx.s10_title, desc: tx.s10_desc, rotate: "1.5deg" },
   ];
 
   return (
