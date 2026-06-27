@@ -40,15 +40,23 @@ export default function Contact() {
     setLoading(true);
     setError("");
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+          subject: `Nouveau message de ${form.name}`,
+          name: form.name,
+          email: form.email,
+          phone: form.phone || "—",
+          message: form.message,
+        }),
       });
-      if (!res.ok) throw new Error("Failed");
+      const data = await res.json();
+      if (!data.success) throw new Error("Failed");
       setSent(true);
     } catch {
-      setError(tx.contact_error ?? "Something went wrong. Please try again.");
+      setError(tx.contact_error);
     } finally {
       setLoading(false);
     }
